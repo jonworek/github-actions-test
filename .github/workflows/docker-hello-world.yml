@@ -1,0 +1,19 @@
+name: docker-hello-world
+
+on: push
+
+jobs:
+  vm:
+    runs-on: self-hosted
+    steps:
+      name: Run on the VM directly
+      - run: |
+          echo "hello world from the VM"
+
+  container:
+    runs-on: self-hosted
+    container: hello-world
+    steps:
+      name: Run in container
+      - run: |
+          echo "hello world from Docker"
